@@ -4,13 +4,15 @@ import PIL.Image
 import matplotlib.pyplot as plt
 import detecto
 import numpy
+import torchvision.transforms
 from detecto.core import Dataset
 import torch
 from detecto.utils import read_image
 from PIL import ImageGrab
 import cv2
 print(torch.cuda.is_available())
-dataset = Dataset('Imagesandlabels')
+transforms = torchvision.transforms.Resize((800,800))
+dataset = Dataset('Pictures')
 
 def screenshot():
     monitor = {"top": 40, "left": 0, "width": 800, "height": 640}

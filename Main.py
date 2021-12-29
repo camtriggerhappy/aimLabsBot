@@ -1,3 +1,5 @@
+import time
+
 import Functions
 import cv2
 import pyautogui
@@ -20,9 +22,8 @@ while True:
         if len(toClick)>2:
             for i in toClick:
                 print(i)
-                if len(i) > 0:
-                    print('attempting click')
-                    Functions.click(i[0] , i[1])
-        elif len(toClick) == 2:
-            Functions.click(toClick[0], toClick[1])
+                print('attempting click')
+                Functions.click(i[0] , i[1])
+                time.sleep(.05)
+
 

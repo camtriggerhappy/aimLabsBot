@@ -14,15 +14,18 @@ def getModel():
 
 def getClicks(boxes):
     print("getting clicks")
-    xCords = []
-    yCords = []
+    Cords = []
+    #normalize to center of screen
     for i in boxes:
-        xCords.append((i[0] + i[2]) / 2)
-        yCords.append((i[1] + i[3]) / 2)
-    print(xCords,yCords )
-    return [xCords, yCords]
+        Cords.append([-((2560/2) - ((i[0] + i[2]) / 2)) , -((1440/2) - (i[1] + i[3]) / 2)])
 
+
+
+
+    return Cords
+#also returns to origin
 def click(x , y):
 
-    pyautogui.dragTo(x, y)
+    pyautogui.move(x, y)
     pyautogui.click()
+    pyautogui.move(-x, -y)
